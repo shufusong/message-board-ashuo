@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>老二的心里话</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			p {
+				color: red;
+			}
+
+			body {
+				background: #2286c6;
+				/*background-image: url(imgs/渐变.jpg);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			background-attachment: fixed;*/
+
+				background-attachment: fixed;
+			}
+
+
+			.tt {
+				height: 100px;
+				line-height: 100px;
+				/* background: #1BBC9B; */
+				width: 1000px;
+				margin: 0px auto;
+				background: #CCCCCC;
+
+			}
+
+			.tt h1 {
+				color: #fff;
+				text-align: center;
+			}
+
+			.nav {
+				height: 40px;
+				line-height: 40px;
+				background: #465653;
+				width: 1000px;
+				margin: 0px auto;
+			}
+
+			.nav ul {
+				margin-left: 460px;
+			}
+
+			.nav ul li {
+				/*border: 1px solid #09f;*/
+				text-align: center;
+				list-style: none;
+				float: left;
+				width: 100px;
+			}
+
+			.nav ul a {
+				text-decoration: none;
+				color: #fff;
+			}
+
+			.container {
+				position: relative;
+				/*background: url(imgs/渐变.jpg);*/
+				/*opacity: 0.4;*/
+				/*border: 1px solid #000;*/
+				width: 1000px;
+				margin: 0 auto;
+				background: #CCFFFF;
+			}
+
+			h1 {
+				color: transparent;
+				-webkit-text-stroke: 1px black;
+				letter-spacing: 0.04em;
+				font-size: 50px;
+				text-align: center;
+			}
+
+			.lllb {
+				background: #ccc;
+				height: 30px;
+			}
+
+			#hy {
+				background: pink;
+				color: red;
+				width: 1000px;
+				margin: 0px auto;
+
+			}
+
+			#barcon {
+				height: 50px;
+				background: #CCCCCC;
+			}
+
+			#message {
+				opacity: 1.0;
+		
+			}
+
+			#message {
+				transition: opacity 0.4s ease-in 0,;
+			}
+
+			#message li:hover {
+				opacity: 0.5;
+			
+			
+			
+			
+		</style>
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js">
+		</script>
+		<script type="text/javascript" src="js/cookie.js">
+
+		</script>
+		<script type="text/javascript" src="js/md5.js">
+
+		</script>
+		<script type="text/javascript" src="js/fenye.js">
+
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				if ($.getCookie(hex_md5("login")) == hex_md5("success" + $.getCookie("adminName") + $.getCookie("sessionId"))) {
+					$('#hy').html("欢迎管理员: " + $.getCookie("adminName"));
+				};
+				$.ajax({
+					type: "GET",
+					url: "data22.php",
+					dataType: "json",
+					success: function(data) {
+						data = data.data;
+						window.data = data;
+						var str = "<ul>";
+						if ($.getCookie(hex_md5("login")) == hex_md5("success" + $.getCookie("adminName") + $.getCookie("sessionId"))) {
+							$.each(data, function(index, value) {
+
+								str += "<li><img src='face/" + value.face + "'>" + "&nbsp;" + value.author + "说:" + "<br>" + "标题：" +
+									value.title +
+									"<br>" + "内容：" + value.content + "<br>" + "发布时间：" + value.addTime + "<br>" + "管理员回复:" + value.reply +
+									"<br><a href=hf.html?messageId=" + value.messageId + ">回复</a>" + "<br><a href=delete.php?messageId=" +
+									value.messageId + ">删除</a>" + "<br>" + "<hr>" + "</li>";
+
+							});
+							$("#message").html(str + "</ul>");
+						} else {
+
+							$.each(data, function(index, value) {
+
+								str += "<li><img src='face/" + value.face + "'>" + "&nbsp;" + value.author + "说:" + "<br>" + "标题：" +
+									value.title +
+									"<br>" + "内容：" + value.content + "<br>" + "发布时间：" + value.addTime + "<br>" + "管理员回复:";
+								if (value.reply == undefined) {
+									str += "付老二未回复<br>" + "<hr></li>";
+								} else {
+									str += value.reply + "<br>" + "<hr></li>";
+								}
+
+							});
+							$("#message").html(str + "</ul>");
+						}
+						goPage(1, 4);
+					},
+					complete: function() {
+						$("#bt1").click(function() {
+							var form1 = document.getElementById("form1");
+							var formdata = new FormData(form1);
+							$.ajax({
+								url: "fbly.php",
+								type: "POST",
+								processData: false,
+								contentType: false,
+								data: formdata,
+								dataType: "json",
+								success: function(data) {
+									if (data.status == "1001") {
+										location.href = "index.html";
+									} else {
+										alert("发布失败");
+									}
+								}
+							})
+						})
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="hy"></div>
+		<div class="tt">
+			<h1>付老二的心里话</h1>
+		</div>
+		<div class="nav">
+			<ul>
+				<li><a href="#">总舵主页</a></li>
+				<li><a href="admin.html">长老解答</a></li>
+				<li style="background: #1BBC9B;"><a href="#">留言板</a></li>
+			</ul>
+		</div>
+		<div class="container">
+			<form method="post" id="form1" autocomplete="off">
+				头像:<input type="file" name="face" id="face" value="" />
+				<h4 class="author">昵称：</h4>
+				<input type="text" id="author" name="author" autocomplete="off" /><span id="author_tips"></span>
+				<h4 class="one">标题：</h4>
+				<input type="text" id="title" name="title" autocomplete="off" /><span id="title_tips">
+				</span>
+				<h4 class="two">内容：</h4>
+				<textarea id="content" rows="7" cols="40" name="content" autocomplete="off"></textarea>
+				<input type="button" id="bt1" value="提交留言" name="submit" /><span id="tips"></span>
+			</form>
+	
+			
+			
+			<div class="lllb">
+				<span>留言列表</span>
+			</div>
+			<div id="message">
+			</div>
+			<div id="barcon"></div>
+		</div>
+	</body>
+</html>

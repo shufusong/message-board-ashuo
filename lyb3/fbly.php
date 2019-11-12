@@ -1,0 +1,22 @@
+<?php
+include("conn.php");
+header("content-type:text/html;charset=utf-8");
+$author=$_POST['author'];
+$title=$_POST['title'];
+$content=$_POST['content'];
+$filename=$_FILES['face']['name'];
+$face=$filename;
+$filesize=$_FILES['face']['size'];
+$filenamekz=strstr($filename,".");
+$filenamels=$_FILES['face']['tem_name'];
+if($filesize<=512000){
+	if(strstr(".gif.jpn.png",$filenamekz)){
+		 move_uploaded_file($filenamels,"face/".$filename);
+		  $flag=mysql_query("insert into message(author,title,content,face,addTime) values('$author','$title','$content','$face',now())");   
+	}	
+	}
+if($flag){
+	echo'{"status":"1001"}';
+}else{
+	echo'{"status":"2001"}';}
+?>
