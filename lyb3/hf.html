@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<style type="text/css">
+		body{
+			background: url(bg.jpg) no-repeat center/cover;
+			background-attachment: fixed;
+		}
+		.container{
+			 margin: 100px auto;
+			 text-align: center;
+		}
+		textarea{
+			 border: 1px solid #09f;
+			 opacity: 0.4;
+		}
+		h3{
+			font-size: 25px;
+			color: red;
+			margin-bottom: 20px;
+		}
+	</style>
+	<script src="js/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/md5.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/cookie.js" type="text/javascript" charset="utf-8"></script>	
+</head>
+<script type="text/javascript">
+		$(function(){
+			if($.getCookie(hex_md5("login"))==hex_md5("success"+$.getCookie("adminName")+$.getCookie("sessionId"))){
+				
+				var C1=window.location.href.split("?")[1].split("=")[1]; 
+				 
+			$("#bt1").click(function(){
+				$.ajax({
+					url:"reply.php",
+					type:"POST",
+					data:{reply:$("#reply").val(),messageId:C1},
+					success:function(){
+						location.href="index.html";
+					}
+				})
+				})
+				}
+				else{
+					location.href="error.html";
+			}
+		
+		})
+	
+	</script>
+<body> 
+<div class="container">
+	<h3>管理员回复到:</h3>
+	<textarea name="reply" id="reply" cols="50" rows="10"></textarea>
+	<input type="button" name="bt1" value="回复" id="bt1">
+</div>
+	
+	
+</body>
+</html>
