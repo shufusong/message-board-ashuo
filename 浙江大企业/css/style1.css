@@ -1,0 +1,249 @@
+body,div,input,img,ul,li,h1,h2,h3,h4,h5,h6,span{
+    margin:0px;
+    padding:0px;
+}
+#contentmax{
+    background: #F4F6F9;
+    width: 1280px;
+    margin: 0px auto;
+}
+#banner{
+    width: 1280px;
+    border: 1px solid #E3E4E8;
+    height: 36px;
+    background: #F0F2F5;
+}
+#banner span{
+    float: right;
+    margin-right: 50px;
+    margin-top: 9px;
+}
+.content1{
+    position: relative;
+}
+#img1{
+    width: 64px;
+    height: 79px;
+    margin-left: 84px;
+    margin-top: 21px;
+}
+#span1{
+    color:#2566C2;
+    font-weight: bold;
+    font-size: 38px;
+    margin-left: 12px;
+    position: absolute;
+    top: 35px;
+}
+#input{
+    background: #FFFFFF;
+   border: 1px solid #D1D3D8;
+   outline: none;
+   width: 250px;
+   height: 28px; 
+   border-radius: 3px;
+   position: absolute;
+    margin-left: 820px;
+    margin-top: 46px;
+}
+#btn{
+    background: #4B8DE3;
+    border: 1px solid #4B8DE3;
+    border-radius: 0px 3px 3px 0px;
+    width: 60px;
+    height: 29px;
+    position:absolute;
+    top: 46px;
+    left: 1159px;
+
+}
+.content1 .ul{
+    color: #FFFFFF;
+    font-size: 20px;
+    background: #2566C2; 
+    list-style: none;
+    width: 1280px;
+    height: 52px;
+    position: absolute;
+    top: 20px;
+}
+.ul li{
+    text-align: center;
+    float: left;
+    padding: 13px 0px 13px;
+    width: 164px;
+}
+.ul #li1{
+    margin-left: 96px;
+}
+.ul li:hover{
+    background: #FFFFFF;
+    color: #2566C2;
+    cursor: pointer;
+}
+#banner2{
+    width: 100%;
+    height: 70px;
+    position: relative;
+    top: 85px;
+    background: #FFFFFF;
+}
+#banner2 input{
+     margin-top: 22px;
+}
+#banner input{
+    width: 100px;
+    height: 28px;
+}
+#span2{
+    margin-left: 44px;
+}
+#bt1,#rest{
+    width: 60px;
+    height: 28px;
+    border-radius: 3px;
+    border: 1px solid #4B8DE3;
+}
+#bt1{
+    background: #4B8DE3;
+}
+#rest{
+    background: #FFFFFF;
+}
+#content{
+    margin-bottom: 20px;
+    position: relative;
+}
+#left{
+    background: #FFFFFF;
+    margin-left: 40px;
+    float: left;
+    width: 200px;
+    height: 476px;
+    position: relative;
+    top: 160px;
+}
+#right{
+    width: 980px;
+    height: 479px;
+    background: #ffffff;
+    overflow: hidden;
+    position: relative;
+    left:20px; 
+    top:160px;
+}
+#right h3{
+    margin-left: 20px;
+    margin-top: 20px;
+    color: #333333;
+    font-size: 16px;
+}
+#right ul{
+    margin-top: 19px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+#right .li1{
+    border-top: 1px solid #D1D3D8; 
+    width: 100%;
+    padding:5px 36px 5px 5px ;
+    font-size: 14px;
+    color: #333333;
+}
+#right li{
+    border-top: 1px dashed #D1D3D8; 
+    width: 100%;
+    padding:5px 36px 5px 5px ;
+    font-size: 14px;
+    color: #333333;
+}
+#right .select{
+    /* margin-top:78px;  */
+    margin-left: 356px;
+}
+#right input{
+    width: 28px;
+    height: 28px;
+    background: #F4F6F9;
+    border: 1px solid #E3E4E8;
+    border-radius: 3px;
+    margin-right: 8px;
+}
+#right .select span{
+    margin-left: 12px;
+}
+#right .btn{
+    width: 63px;
+    height: 28px;;
+}
+#right .input1{
+    border: none;
+    background: #ffffff;
+}
+#floot{
+    overflow: hidden;
+    margin-top: 120px;
+    margin-bottom: 22px;
+    margin-left: 40px;
+    position: relative;
+    top: 60px;
+}
+#floot span{
+    line-height: 21px;
+    font-family: MicrosoftYaHei;
+    font: 16px 1.5em;
+    color: #333333;
+    margin-left: 16px;
+}
+#floot a{
+    font-family: MicrosoftYaHei;
+    font-size: 16px;
+    color: #4B8DE3;
+    text-decoration: none;
+    margin-left: 30px;
+}
+#last{
+    border-top: 2px solid #2566c2;
+    width: 1280px;
+    height: 120px;
+    margin-top: 80px;
+    margin-bottom: 24px;
+    background: #ffffff;
+}
+#last #content2{
+    margin: 0px auto;
+    width: 720px;
+}
+#last img{
+    width: 49px;
+    height: 62px;
+    float: left;
+    margin-top: 29px;
+}
+#lastbanner ul{
+    list-style: none;
+    font-size: 12px;
+    margin-left: 151px;
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+#lastbanner li{
+    float: left;
+    margin-left: 10px;
+}
+#lastbanner a{
+    color: #4B8DE3;
+    text-decoration: none;
+}
+#lastbanner span{
+    display: block;
+    font-family: MicrosoftYaHei;
+    font-size: 12px;
+    color: #666666;
+}
+#lastbanner .span1,.span2{
+    margin-left: 80px;
+}
+#lastbanner .span3{
+    margin-left: 160px;
+}

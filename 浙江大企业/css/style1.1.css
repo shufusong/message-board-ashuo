@@ -1,0 +1,27 @@
+#left div{
+    border: 1px solid #000;
+}
+#left{
+    background: #d8e4f4;
+}
+#juxing{
+    width: 4px;
+    height: 40px;
+}
+#left .img{
+    width: 16px;
+    height: 14px;
+}
+#left ul{
+    position: absolute;
+    top: 0px;
+    list-style: none;
+}
+#left ul li{
+    padding-left: 10px;
+    padding-top: 9px;
+    padding-bottom: 10px;
+}
+#left ul .li1{
+    background-color: #d8e4f4;
+}
